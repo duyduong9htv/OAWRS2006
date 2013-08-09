@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 15, 2012 9:15:20 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="luars" name="luars.entity.Whales" table="whales">
+    <id name="whaleId" type="java.lang.Integer">
+      <column name="whale_id"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="luars.entity.WhaleGroups" fetch="select" name="whaleGroups">
+      <column name="group_id"/>
+    </many-to-one>
+    <many-to-one class="luars.entity.Pings" fetch="select" name="pings" lazy="false">
+      <column name="ping_id" not-null="true"/>
+    </many-to-one>
+    <property name="datetime" type="timestamp">
+      <column length="19" name="datetime"/>
+    </property>
+    <property name="timeStart" type="java.lang.Double">
+      <column name="time_start" precision="22" scale="0"/>
+    </property>
+    <property name="timeStop" type="java.lang.Double">
+      <column name="time_stop" precision="22" scale="0"/>
+    </property>
+    <property name="freqStart" type="java.lang.Double">
+      <column name="freq_start" precision="22" scale="0"/>
+    </property>
+    <property name="freqCenter" type="java.lang.Double">
+      <column name="freq_center" precision="22" scale="0"/>
+    </property>
+    <property name="freqStop" type="java.lang.Double">
+      <column name="freq_stop" precision="22" scale="0"/>
+    </property>
+    <property name="f0MLE" type="java.lang.Double">
+      <column name="f0" precision="22" scale="0"/>
+    </property>
+    <property name="f1MLE" type="java.lang.Double">
+      <column name="f1" precision="22" scale="0"/>
+    </property>
+    <property name="timeStartMLE" type="java.lang.Double">
+      <column name="time_start_2" precision="22" scale="0"/>
+    </property>
+    <property name="durationMLE" type="java.lang.Double">
+      <column name="duration_2" precision="22" scale="0"/>
+    </property>
+    <property name="soundPressureLevel" type="java.lang.Double">
+      <column name="sound_pressure_level" precision="22" scale="0"/>
+    </property>
+    <property name="relativeBeamMusic" type="java.lang.Double">
+      <column name="relative_beam_MUSIC" precision="22" scale="0"/>
+    </property>
+    <property name="relativeBeamCdsb" type="java.lang.Double">
+      <column name="relative_beam_CDSB" precision="22" scale="0"/>
+    </property>
+    <property name="trueBearing" type="java.lang.Double">
+      <column name="true_bearing" precision="22" scale="0"/>
+    </property>
+    <property name="arrayHeading" type="java.lang.Double">
+      <column name="array_heading" precision="22" scale="0"/>
+    </property>
+    <property name="arrayLat" type="java.lang.Double">
+      <column name="array_lat" precision="22" scale="0"/>
+    </property>
+    <property name="arrayLng" type="java.lang.Double">
+      <column name="array_lng" precision="22" scale="0"/>
+    </property>
+    <property name="timeBoundsAccurate" type="boolean">
+      <column name="time_bounds_accurate" not-null="true"/>
+    </property>
+    <property name="freqBoundsAccurate" type="boolean">
+      <column name="freq_bounds_accurate" not-null="true"/>
+    </property>
+    <property name="movieCreated" type="boolean">
+      <column name="movie_created" not-null="true"/>
+    </property>
+    <property name="audioCreated" type="boolean">
+      <column name="audio_created" not-null="true"/>
+    </property>
+    <property name="lastUpdated" type="timestamp">
+      <column length="19" name="last_updated"/>
+    </property>
+  </class>
+</hibernate-mapping>

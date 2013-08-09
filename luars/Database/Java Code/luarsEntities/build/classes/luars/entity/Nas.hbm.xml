@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 15, 2012 9:15:20 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="luars" name="luars.entity.Nas" table="nas">
+    <id name="timestamp" type="int">
+      <column name="timestamp"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="luars.entity.Pings" fetch="select" name="pings">
+      <column name="ping_id"/>
+    </many-to-one>
+    <property name="shipLat" type="java.lang.Double">
+      <column name="ship_lat" precision="22" scale="0">
+        <comment>Latitude from Ship GPS</comment>
+      </column>
+    </property>
+    <property name="shipLng" type="java.lang.Double">
+      <column name="ship_lng" precision="22" scale="0">
+        <comment>Longitude from Ship GPS</comment>
+      </column>
+    </property>
+    <property name="arrayCenterLat" type="java.lang.Double">
+      <column name="array_center_lat" precision="22" scale="0">
+        <comment>Latitude of array center calculated using ship GPS, array heading, and distance from ship to array center</comment>
+      </column>
+    </property>
+    <property name="arrayCenterLng" type="java.lang.Double">
+      <column name="array_center_lng" precision="22" scale="0">
+        <comment>Longitude of array center calculated using ship GPS, array heading, and distance from ship to array center</comment>
+      </column>
+    </property>
+    <property name="arrayHeading" type="java.lang.Double">
+      <column name="array_heading" precision="22" scale="0">
+        <comment>Array heading in degrees from True north</comment>
+      </column>
+    </property>
+    <property name="arrayDepth" type="java.lang.Double">
+      <column name="array_depth" precision="22" scale="0"/>
+    </property>
+    <property name="arrayTemperature" type="java.lang.Double">
+      <column name="array_temperature" precision="22" scale="0"/>
+    </property>
+    <property name="arrayRoll" type="java.lang.Double">
+      <column name="array_roll" precision="22" scale="0"/>
+    </property>
+    <property name="arrayPitch" type="java.lang.Double">
+      <column name="array_pitch" precision="22" scale="0"/>
+    </property>
+    <property name="arrayPressure" type="java.lang.Double">
+      <column name="array_pressure" precision="22" scale="0"/>
+    </property>
+  </class>
+</hibernate-mapping>

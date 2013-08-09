@@ -1,0 +1,58 @@
+CREATE DATABASE  IF NOT EXISTS `nontriv1_luars` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `nontriv1_luars`;
+-- MySQL dump 10.13  Distrib 5.5.16, for osx10.5 (i386)
+--
+-- Host: www.nontrivialsolution.com    Database: nontriv1_luars
+-- ------------------------------------------------------
+-- Server version	5.0.92-community
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Not dumping tablespaces as no INFORMATION_SCHEMA.FILES table on this server
+--
+
+--
+-- Table structure for table `whale_groups`
+--
+
+DROP TABLE IF EXISTS `whale_groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `whale_groups` (
+  `group_id` int(11) NOT NULL auto_increment,
+  `date` varchar(20) default NULL,
+  `sector` int(11) default NULL,
+  PRIMARY KEY  (`group_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `whale_groups`
+--
+
+LOCK TABLES `whale_groups` WRITE;
+/*!40000 ALTER TABLE `whale_groups` DISABLE KEYS */;
+INSERT INTO `whale_groups` VALUES (1,'2006-10-01',3),(2,'2006-10-01',3),(3,'2006-10-01',3),(4,'2006-10-01',3),(5,'2006-10-01',3),(6,'2006-10-01',3),(7,'2006-10-01',3),(8,'2006-10-01',3),(9,'2006-10-01',6),(10,'2006-10-01',6),(11,'2006-10-02',3),(12,'2006-10-02',3),(13,'2006-10-02',3),(14,'2006-10-02',3),(15,'2006-10-02',3),(16,'2006-10-02',3),(17,'2006-10-02',3),(18,'2006-10-02',6),(19,'2006-10-02',6),(20,'2006-10-03',6),(21,'2006-10-03',6),(22,'2006-10-03',4),(23,'2006-10-03',4),(24,'2006-10-03',3),(25,'2006-10-03',3),(26,'2006-10-03',3),(27,'2006-10-03',3),(28,'2006-10-03',3),(29,'2006-10-03',3),(30,'2006-10-03',3),(31,'2006-10-03',3),(32,'2006-10-03',3),(33,'2006-10-03',4),(34,'2006-10-04',6),(35,'2006-10-04',4),(36,'2006-10-04',5),(37,'2006-10-04',6),(38,'2006-10-04',5),(39,'2006-10-04',5),(40,'2006-10-04',2),(41,'2006-10-05',3),(42,'2006-10-05',6),(43,'2006-10-05',4),(44,'2006-10-06',4),(45,'2006-10-06',3),(46,'2006-10-06',6),(47,'2006-09-20',4),(48,'2006-09-20',6),(49,'2006-09-22',2),(50,'2006-09-22',6),(51,'2006-09-22',6),(52,'2006-09-22',6),(53,'2006-09-22',6),(54,'2006-09-22',6),(55,'2006-09-22',6),(56,'2006-09-22',6),(57,'2006-09-22',6),(58,'2006-09-22',6),(59,'2006-09-22',6),(60,'2006-09-26',6),(61,'2006-09-26',7),(62,'2006-09-27',6),(63,'2006-09-27',2),(64,'2006-09-27',6),(65,'2006-09-27',6),(66,'2006-09-27',6),(67,'2006-09-27',6),(68,'2006-09-27',6),(69,'2006-09-28',6),(70,'2006-09-28',6),(71,'2006-09-28',6),(72,'2006-09-28',2),(73,'2006-09-28',6),(74,'2006-09-29',6),(75,'2006-09-29',5),(76,'2006-09-29',3),(77,'2006-09-29',6),(78,'2006-09-29',3),(79,'2006-09-29',2),(80,'2006-09-29',6),(81,'2006-09-29',6),(82,'2006-09-29',6),(83,'2006-09-29',6),(84,'2006-09-30',3),(85,'2006-09-30',3),(86,'2006-09-30',3),(87,'2006-09-30',3),(88,'2006-09-30',3),(89,'2006-09-30',6),(90,'2006-09-30',5),(91,'2006-09-30',6),(92,'2006-09-30',6),(93,'2006-09-30',6),(94,'2006-09-30',6),(95,'2006-09-30',6),(96,'2006-09-30',5),(97,'2006-09-30',6),(98,'2006-09-30',3);
+/*!40000 ALTER TABLE `whale_groups` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2012-02-14 12:19:09

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 15, 2012 9:15:20 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="luars" name="luars.entity.Tracks" table="tracks">
+    <id name="trackId" type="java.lang.Integer">
+      <column name="track_id"/>
+      <generator class="identity"/>
+    </id>
+    <property name="name" type="string">
+      <column length="5" name="name" not-null="true"/>
+    </property>
+    <property name="dataDir" type="string">
+      <column length="9" name="dataDir" not-null="true"/>
+    </property>
+    <set inverse="true" name="pingses" lazy="false">
+      <key>
+        <column name="track_id" not-null="true"/>
+      </key>
+      <one-to-many class="luars.entity.Pings"/>
+    </set>
+  </class>
+</hibernate-mapping>

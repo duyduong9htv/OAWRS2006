@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 15, 2012 9:15:20 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="luars" name="luars.entity.PingsToSources" table="pings_to_sources">
+    <composite-id class="luars.entity.PingsToSourcesId" name="id">
+      <key-property name="pingId" type="int">
+        <column name="ping_id"/>
+      </key-property>
+      <key-property name="sourceId" type="int">
+        <column name="source_id"/>
+      </key-property>
+    </composite-id>
+    <many-to-one class="luars.entity.Sources" fetch="select" insert="false" name="sources" update="false">
+      <column name="source_id" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="luars.entity.Pings" fetch="select" insert="false" name="pings" update="false">
+      <column name="ping_id" not-null="true"/>
+    </many-to-one>
+    <property name="timeStart" type="double">
+      <column name="time_start" not-null="true" precision="22" scale="0"/>
+    </property>
+    <property name="confirmed" type="java.lang.Boolean">
+      <column name="confirmed"/>
+    </property>
+  </class>
+</hibernate-mapping>

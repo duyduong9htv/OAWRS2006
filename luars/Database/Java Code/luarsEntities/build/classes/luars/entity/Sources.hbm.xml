@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 15, 2012 9:15:20 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class catalog="luars" name="luars.entity.Sources" table="sources">
+        <id name="sourceId" type="java.lang.Integer">
+            <column name="source_id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="waveformName" type="string">
+            <column length="5" name="waveform_name"/>
+        </property>
+        <property name="filter" type="string">
+            <column length="1" name="filter"/>
+        </property>
+        <property name="startFreq" type="big_decimal">
+            <column name="start_freq" precision="6"/>
+        </property>
+        <property name="stopFreq" type="big_decimal">
+            <column name="stop_freq" precision="6"/>
+        </property>
+        <property name="centerFreq" type="big_decimal">
+            <column name="center_freq" precision="5" scale="1"/>
+        </property>
+        <property name="bandwidth" type="big_decimal">
+            <column name="bandwidth" precision="4" scale="1"/>
+        </property>
+        <property name="tbetween" type="string">
+            <column length="10" name="Tbetween"/>
+        </property>
+        <property name="repitition" type="java.lang.Integer">
+            <column name="repitition"/>
+        </property>
+        <property name="upDn" type="string">
+            <column length="3" name="up_dn"/>
+        </property>
+        <property name="pulseLength" type="big_decimal">
+            <column name="pulse_length" precision="17" scale="16"/>
+        </property>
+        <property name="passLow" type="big_decimal">
+            <column name="pass_low" precision="6"/>
+        </property>
+        <property name="passHigh" type="big_decimal">
+            <column name="pass_high" precision="6"/>
+        </property>
+        <property name="transLow" type="big_decimal">
+            <column name="trans_low" precision="15" scale="12"/>
+        </property>
+        <property name="transHigh" type="big_decimal">
+            <column name="trans_high" precision="15" scale="12"/>
+        </property>
+        <property name="FShift" type="big_decimal">
+            <column name="f_shift" precision="15" scale="12"/>
+        </property>
+        <property name="passBw" type="java.lang.Integer">
+            <column name="pass_bw"/>
+        </property>
+        <property name="totalBw" type="big_decimal">
+            <column name="total_bw" precision="15" scale="12"/>
+        </property>
+        <property name="maxDec" type="big_decimal">
+            <column name="max_dec" precision="15" scale="13"/>
+        </property>
+        <property name="minSr2" type="big_decimal">
+            <column name="min_sr2" precision="15" scale="12"/>
+        </property>
+        <property name="suggDec" type="java.lang.Integer">
+            <column name="sugg_dec"/>
+        </property>
+        <property name="suggSr2" type="java.lang.Integer">
+            <column name="sugg_sr2"/>
+        </property>
+        <property name="desCut" type="big_decimal">
+            <column name="des_cut" precision="4" scale="1"/>
+        </property>
+        <property name="desTrans" type="big_decimal">
+            <column name="des_trans" precision="15" scale="14"/>
+        </property>
+        <property name="subAps" type="string">
+            <column length="2" name="sub_aps"/>
+        </property>
+        <set inverse="true" name="pingsToSourceses">
+            <key>
+                <column name="source_id" not-null="true"/>
+            </key>
+            <one-to-many class="luars.entity.PingsToSources"/>
+        </set>
+    
+        <set name="pings" table="pings_to_sources" inverse="true" lazy="true" fetch="select" >
+
+            <key>
+                <column name="source_id" />
+            </key>          
+
+            <many-to-many class="luars.entity.Pings">
+                <column name="ping_id" />
+            </many-to-many>
+                
+
+        </set>
+    </class>
+</hibernate-mapping>

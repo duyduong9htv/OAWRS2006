@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>        
+        <property name="hibernate.connection.url">jdbc:mysql://129.10.58.168:3306/luars</property>
+        <property name="hibernate.connection.username">luars_user</property>
+        <property name="hibernate.connection.password">acoustics2</property>
+        <property name="hibernate.show_sql">false</property>
+        <property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>
+        
+        <property name="c3p0.min_size">5</property>
+        <property name="c3p0.max_size">20</property>
+        <property name="c3p0.timeout">1800</property>
+        <property name="c3p0.max_statements">50</property>
+        <property name="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+        
+        <property name="connection.autoReconnect">true</property>
+        <property name="connection.autoReconnectForPools">true</property>
+        <property name="connection.is-connection-validation-required">true</property>
+
+        <mapping resource="luars/entity/Nas.hbm.xml"/>
+        <mapping resource="luars/entity/Pings.hbm.xml"/>
+        <mapping resource="luars/entity/PingsToSources.hbm.xml"/>
+        <mapping resource="luars/entity/Whales.hbm.xml"/>
+        <mapping resource="luars/entity/WhaleGroups.hbm.xml"/>
+        <mapping resource="luars/entity/Tracks.hbm.xml"/>
+        <mapping resource="luars/entity/Sources.hbm.xml"/> 
+        
+    </session-factory>
+    
+    
+</hibernate-configuration>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 15, 2012 9:15:20 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class catalog="luars" name="luars.entity.Pings" table="pings">
+        <id name="pingId" type="java.lang.Integer">
+            <column name="ping_id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="luars.entity.Tracks" fetch="select" name="tracks" lazy="false">
+            <column name="track_id" not-null="true"/>
+        </many-to-one>
+        <property name="startTime" type="timestamp">
+            <column length="19" name="start_time" not-null="true"/>
+        </property>
+        <property name="duration" type="double">
+            <column name="duration" not-null="true" precision="22" scale="0"/>
+        </property>
+        <property name="headingAvg" type="double">
+            <column name="heading_avg" not-null="true" precision="22" scale="0"/>
+        </property>
+        <property name="receiverLat" type="double">
+            <column name="receiver_lat" not-null="true" precision="22" scale="0"/>
+        </property>
+        <property name="receiverLng" type="double">
+            <column name="receiver_lng" not-null="true" precision="22" scale="0"/>
+        </property>
+        <property name="sourceLat" type="double">
+            <column name="source_lat" not-null="true" precision="22" scale="0"/>
+        </property>
+        <property name="sourceLng" type="double">
+            <column name="source_lng" not-null="true" precision="22" scale="0"/>
+        </property>
+        <property name="minEasting" type="double">
+            <column name="min_easting" not-null="true" precision="22" scale="0"/>
+        </property>
+        <property name="maxEasting" type="double">
+            <column name="max_easting" not-null="true" precision="22" scale="0"/>
+        </property>
+        <property name="minNorthing" type="double">
+            <column name="min_northing" not-null="true" precision="22" scale="0"/>
+        </property>
+        <property name="maxNorthing" type="double">
+            <column name="max_northing" not-null="true" precision="22" scale="0"/>
+        </property>
+        <set inverse="true" name="nases">
+            <key>
+                <column name="ping_id"/>
+            </key>
+            <one-to-many class="luars.entity.Nas"/>
+        </set>
+        <set inverse="true" name="whaleses">
+            <key>
+                <column name="ping_id" not-null="true"/>
+            </key>
+            <one-to-many class="luars.entity.Whales"/>
+        </set>
+        <set inverse="true" name="pingsToSourceses">
+            <key>
+                <column name="ping_id" not-null="true"/>
+            </key>
+            <one-to-many class="luars.entity.PingsToSources"/>
+        </set>
+    
+        <set name="sources" table="pings_to_sources" inverse="true" lazy="true" fetch="select" >
+
+            <key>
+                <column name="ping_id" />
+            </key>          
+
+            <many-to-many class="luars.entity.Sources">
+                <column name="source_id" />
+            </many-to-many>
+                
+
+        </set>
+    </class>
+</hibernate-mapping>
