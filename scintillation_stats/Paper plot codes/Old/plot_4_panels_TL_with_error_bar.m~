@@ -1,0 +1,248 @@
+% plot TL and errorbar showing standard deviation
+
+clear all; close all ;
+
+figure(1); set(gcf, 'position', [1979 8 1746 1120]);
+% set(gcf, 'position', [2159 ]
+
+%% 415 first 
+
+cd /Volumes/scratch/duong//TL_vs_range/Transect14/415_PS
+load PSmean_std_rect_0
+
+
+% figure; plot(PS(100,:)); 
+
+mean_PS = PS(100, 1:end);
+error = ones(size(mean_PS))*2; 
+
+%range average --> plot. Pick 1km spacing points and draw error bars on
+%these points
+
+range_inc = 50; 
+range = range_inc*[1:1:size(PS, 2)]; 
+range_run = []; 
+PS_run = []; 
+
+for ii = 1:length(range)
+    inds = find(abs((range - range(ii)))<1000); 
+    range_run = [range_run mean(range(inds))];
+    PS_run = [PS_run mean(PS(105, inds))];     
+end
+
+PS_run = mean_PS; 
+
+
+s(1) = subplot(2,2,1); box on;  plot(range_run, PS_run, 'k-', 'linewidth', 1); hold on; 
+
+
+error_point = 1000*[1:5:50];
+
+error_inds = error_point./range_inc; 
+
+error_pointY = PS_run(error_inds); 
+
+error = standard_deviation(105, error_inds);
+
+errorbar(error_point, error_pointY, error, 'k.', 'markersize', 0.5, 'linewidth', 1); 
+xlim([0 50e3])
+
+xtl = get(gca, 'xtick'); 
+set(gca, 'xticklabel', ''); 
+% ylabel('Normalized received pressure level (dB)', 'fontsize', 18)
+
+load PSmean_std_rect_250
+figure(1); 
+
+
+% figure; plot(PS(100,:)); 
+
+mean_PS = PS(100, 1:end);
+error = ones(size(mean_PS))*2; 
+
+%range average --> plot. Pick 1km spacing points and draw error bars on
+%these points
+
+range_inc = 50; 
+range = range_inc*[1:1:size(PS, 2)]; 
+range_run = []; 
+PS_run = []; 
+
+for ii = 1:length(range)
+    inds = find(abs((range - range(ii)))<1000); 
+    range_run = [range_run mean(range(inds))];
+    PS_run = [PS_run mean(PS(105, inds))];     
+end
+PS_run = mean_PS; 
+s(3) = subplot(2,2,3); box on;  plot(range_run, PS_run, 'k-', 'linewidth', 1); hold on; 
+
+error_point = 1000*[1:5:50];
+
+error_inds = error_point./range_inc; 
+
+error_pointY = PS_run(error_inds); 
+
+error = standard_deviation(105, error_inds);
+
+errorbar(error_point, error_pointY, error, 'k.', 'markersize', 0.5, 'linewidth', 1); 
+xlim([0 50e3])
+xlabel('Range (km)' , 'fontsize', 20)
+xtl = get(gca, 'xtick'); 
+set(gca, 'xticklabel', xtl/1000); 
+% set(gca, 'yticklabel', '');
+
+
+%% 1125 
+
+cd /Users/dtran/Research/TL_vs_Range/rand_IW/1125_PS
+
+% cd /Volumes/scratch/duong/TL_vs_range/Transect11/1125_PS
+load PSmean_std_rect_0
+
+
+% figure; plot(PS(100,:)); 
+
+mean_PS = PS(100, 1:end);
+error = ones(size(mean_PS))*2; 
+
+%range average --> plot. Pick 1km spacing points and draw error bars on
+%these points
+
+range_inc = 50; 
+range = range_inc*[1:1:size(PS, 2)]; 
+range_run = []; 
+PS_run = []; 
+
+for ii = 1:length(range)
+    inds = find(abs((range - range(ii)))<1000); 
+    range_run = [range_run mean(range(inds))];
+    PS_run = [PS_run mean(PS(105, inds))];     
+end
+
+PS_run = mean_PS; 
+
+s(2) = subplot(2,2,2); box on;  plot(range_run, PS_run, 'k-', 'linewidth', 1); hold on; 
+
+error_point = 1000*[1:5:50];
+
+error_inds = error_point./range_inc; 
+
+error_pointY = PS_run(error_inds); 
+
+error = standard_deviation(105, error_inds);
+
+errorbar(error_point, error_pointY, error, 'k.', 'markersize', 0.5, 'linewidth', 1); 
+xlim([0 50e3])
+
+xtl = get(gca, 'xtick'); 
+set(gca, 'xticklabel', ''); 
+
+
+load PSmean_std_rect_250
+
+% figure; plot(PS(100,:)); 
+
+mean_PS = PS(100, 1:end);
+error = ones(size(mean_PS))*2; 
+
+%range average --> plot. Pick 1km spacing points and draw error bars on
+%these points
+
+range_inc = 50; 
+range = range_inc*[1:1:size(PS, 2)]; 
+range_run = []; 
+PS_run = []; 
+
+for ii = 1:length(range)
+    inds = find(abs((range - range(ii)))<1000); 
+    range_run = [range_run mean(range(inds))];
+    PS_run = [PS_run mean(PS(105, inds))];     
+end
+PS_run = mean_PS; 
+
+s(4) = subplot(2,2,4); box on;  plot(range_run, PS_run, 'k-', 'linewidth', 1); hold on; 
+
+error_point = 1000*[1:5:50];
+
+error_inds = error_point./range_inc; 
+
+error_pointY = PS_run(error_inds); 
+
+error = standard_deviation(105, error_inds);
+
+errorbar(error_point, error_pointY, error, 'k.', 'markersize', 0.5, 'linewidth', 1); 
+xlim([0 50e3])
+
+set(s(3), 'xtick', 10e3*[0 1 2 3 4 5]);
+set(s(2), 'xtick', 10e3*[0 1 2 3 4 5]);
+set(s(1), 'xtick', 10e3*[0 1 2 3 4 5]);
+xtl = get(s(3), 'xtick')
+set(s(3), 'xticklabel', xtl/1000); 
+set(s(2), 'yticklabel', ''); 
+set(s(4), 'yticklabel', ''); 
+set(s(1), 'fontsize', 18)
+set(s(2), 'fontsize', 18)
+
+set(s(3), 'fontsize', 18)
+
+set(s(4), 'fontsize', 18)
+
+set(s(1), 'ylim', [-90 -50]);
+set(s(2), 'ylim', [-90 -50])
+set(s(3), 'ylim', [-90 -50])
+set(s(4), 'ylim', [-90 -50])
+
+set(s(2), 'position', [0.49 0.5838 0.3347 0.3412])
+set(s(3), 'position', [0.13 0.1988 0.3347 0.3412])
+set(s(4), 'position', [0.49 0.1988 0.3347 0.3412])
+
+ text('position', [-61772, -75.976, 17.321], 'string', 'Normalized received pressure level (dB)', 'rotation', 90 , 'fontsize', 20)
+
+ 
+annotation(figure(1),'textbox',...
+    [0.139390034364261 0.558553465929931 0.207689003436426 0.0678513731825525],...
+    'String',{'(A) f_c= 415 Hz. B = 1 Hz'},...
+    'FontWeight','bold',...
+    'FontSize',20,...
+    'FitBoxToText','off',...
+    'LineStyle','none');
+
+annotation(figure(1),'textbox',...
+    [0.499642038946163 0.564384369720016 0.207689003436426 0.0678513731825525],...
+    'String',{'(B) f_c= 1125 Hz. B = 1 Hz'},...
+    'FontWeight','bold',...
+    'FontSize',20,...
+    'FitBoxToText','off',...
+    'LineStyle','none');
+
+
+% Create textbox
+annotation(figure(1),'textbox',...
+    [0.139390034364261 0.177303465929931 0.207689003436426 0.0678513731825525],...
+    'String',{'(C) f_c= 415 Hz. B = 250 Hz'},...
+    'FontWeight','bold',...
+    'FontSize',20,...
+    'FitBoxToText','off',...
+    'LineStyle','none');
+
+% Create textbox
+annotation(figure(1),'textbox',...
+    [0.499642038946163 0.177303465929931 0.207689003436426 0.0678513731825525],...
+    'String',{'(D) f_c= 1125 Hz. B = 250 Hz'},...
+    'FontWeight','bold',...
+    'FontSize',20,...
+    'FitBoxToText','off',...
+    'LineStyle','none');
+
+xlabel('Range (km)', 'fontsize', 20); 
+% set(gca, 'xtick', 10e3*[0 1 2 3 4 5])
+xtl = get(gca, 'xtick'); 
+set(gca, 'xticklabel', xtl/1000); 
+
+
+% set(gcf, 'paperpositionmode', 'auto'); 
+% print -f1 -depsc /Users/dtran/2006_stats/Figures/TL_and_error_bars.eps
+% saveas(gcf, '/Users/dtran/Research/test1.tif')
+
+
+
