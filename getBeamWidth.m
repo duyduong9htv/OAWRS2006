@@ -1,11 +1,9 @@
 function beamwidth = getBeamWidth(steering_angle, fc)
-% function beamwidth = getBeamWidth(steering_angle) 
+% function beamwidth = getBeamWidth(steering_angle, fc) 
 % gets the beamwidth when the array is steered at the steering_angle value
 % of choice. To be used when simulating localization of whales/sources and
 % see how errors in bearing estimates affect the localization results. 
 % 
-% By default, it is assumed that the large aperture (L = 94.5m) is used for
-% frequency fc = 415 Hz. 
 % 
 % input: steering angle is the angle made with the forward endfire
 % direction of the array. Eg: 90 degree steering_angle means that the array
